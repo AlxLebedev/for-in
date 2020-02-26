@@ -16,3 +16,21 @@ test('Filter with properties', () => {
   ];
   expect(recieved).toEqual(expected);
 });
+
+test('Filter without properties', () => {
+  const recieved = orderByProps(obj);
+  const expected = [
+    { key: 'attack', value: 80 },
+    { key: 'defence', value: 40 },
+    { key: 'health', value: 10 },
+    { key: 'level', value: 2 },
+    { key: 'name', value: 'мечник' },
+  ];
+  expect(recieved).toEqual(expected);
+});
+
+test('Empty function', () => {
+  const recieved = orderByProps();
+  const expected = [];
+  expect(recieved).toEqual(expected);
+});

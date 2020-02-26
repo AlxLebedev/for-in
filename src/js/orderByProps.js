@@ -1,6 +1,6 @@
 
 export default function orderByProps(obj, filterProp) {
-  const currentObj = obj;
+  const currentObj = { ...obj };
   const withPropArr = [];
   const withOutPropArr = [];
 
@@ -17,7 +17,7 @@ export default function orderByProps(obj, filterProp) {
     }
   }
 
-  withOutPropArr.sort((prev, next) => prev.key > next.key);
+  withOutPropArr.sort((prev, next) => (prev.key > next.key ? 1 : -1));
 
-  return withPropArr.concat(withOutPropArr);
+  return [...withPropArr, ...withOutPropArr];
 }
